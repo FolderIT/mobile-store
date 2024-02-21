@@ -1,13 +1,20 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Productos from "../../screens/Productos";
-import Carrito from "../../screens/Carrito";
+import Productos from "../screens/Productos";
+import Carrito from "../screens/Carrito";
 import Icon from "react-native-vector-icons/Ionicons";
+import { Text, View } from "react-native";
+import { useSelector } from "react-redux";
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
+
+  const products = useSelector(
+    state => state.productsReducer.productsInCart
+  )
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -31,7 +38,7 @@ const TabNavigator = () => {
           tabBarLabel: "Productos",
           tabBarIcon: ({ color, size }) => (
             <Icon name="pricetag-outline" size={size} color={color} />
-          )
+          ),
         }}
       />
       <Tab.Screen
@@ -40,8 +47,22 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: "Carrito",
           tabBarIcon: ({ color, size }) => (
-            <Icon name="cart-outline" size={size} color={color} />
-          )
+            <View>
+              <Text
+                style={{
+                  position: "absolute",
+                  right: -10,
+                  fontSize: 18,
+                  color: "blue",
+                  fontWeight: "bold",
+                  top: -5,
+                }}
+              >
+                {products.length > 0 ? products.length : ''}
+              </Text>
+              <Icon name="cart-outline" size={size} color={color} />
+            </View>
+          ),
         }}
       />
     </Tab.Navigator>
