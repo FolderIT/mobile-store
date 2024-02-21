@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './navigation/navigation';
+import Navigation from './src/navigation/navigation';
 import { StyleSheet } from 'react-native';
 
 export default function App() {
