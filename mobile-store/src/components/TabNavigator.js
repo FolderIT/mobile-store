@@ -1,8 +1,8 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Productos from "../screens/Productos";
-import Carrito from "../screens/Carrito";
+import Productos from "../../screens/Productos";
+import Carrito from "../../screens/Carrito";
 import Icon from "react-native-vector-icons/Ionicons";
 
 const Tab = createBottomTabNavigator();
