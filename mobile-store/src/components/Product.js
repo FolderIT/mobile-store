@@ -8,7 +8,7 @@ const Product = ({ product, carrito }) => {
   const dispatch = useDispatch()
 
   return (
-    <View style={{marginVertical: 30, flexDirection: 'row', backgroundColor: 'white', alignContent: 'space-between'}}>
+    <View style={{ paddingVertical: 5, marginBottom: 10, flexDirection: 'row', backgroundColor: 'white', alignContent: 'space-between'}}>
       <View style={{width: "50%", alignItems: 'center'}}>
       <Image
        resizeMode="center"
@@ -22,7 +22,7 @@ const Product = ({ product, carrito }) => {
         <Text style={{ fontSize: 20 }}>
          {product?.title}
         </Text>
-        <Text style={{ fontSize: 18, color: "blue" }}>${product?.price}</Text>
+        <Text style={{ fontSize: 18, color: "blue" }}>${product?.price.toFixed(2)}</Text>
         <Text>{product?.description}</Text>
         <TouchableOpacity
         onPress={()=> !carrito ? dispatch(addToCart(product)) :  dispatch(deleteFromCart(product))}
@@ -39,6 +39,5 @@ const Product = ({ product, carrito }) => {
     </View>
   );
   }
-
 
 export default Product;

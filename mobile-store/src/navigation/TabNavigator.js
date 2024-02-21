@@ -18,13 +18,14 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: "blue",
+        tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "gray",
         tabBarLabelStyle: {
           fontSize: 16,
         },
         tabBarStyle: [
           {
+            backgroundColor: "#1b1c20",
             display: "flex",
           },
           null,
@@ -35,9 +36,18 @@ const TabNavigator = () => {
         name="Productos"
         component={Productos}
         options={{
+          headerStyle: {
+            backgroundColor: "#1b1c20",
+          },
+          headerTintColor: "#FFFFFF",
+          headerTitleStyle: {
+            fontFamily: "Mulish",
+            fontWeight: "400",
+            fontSize: 20,
+          },
           tabBarLabel: "Productos",
           tabBarIcon: ({ color, size }) => (
-            <Icon name="pricetag-outline" size={size} color={color} />
+            <Icon name="pricetag-outline" size={20} color={color} />
           ),
         }}
       />
@@ -45,6 +55,15 @@ const TabNavigator = () => {
         name="Carrito"
         component={Carrito}
         options={{
+          headerStyle: {
+            backgroundColor: "#1b1c20",
+          },
+          headerTintColor: "#FFFFFF",
+          headerTitleStyle: {
+            fontFamily: "Mulish",
+            fontWeight: "400",
+            fontSize: 20,
+          },
           tabBarLabel: "Carrito",
           tabBarIcon: ({ color, size }) => (
             <View>
@@ -53,14 +72,14 @@ const TabNavigator = () => {
                   position: "absolute",
                   right: -10,
                   fontSize: 18,
-                  color: "blue",
+                  color: "white",
                   fontWeight: "bold",
                   top: -5,
                 }}
               >
                 {products.length > 0 ? products.length : ''}
               </Text>
-              <Icon name="cart-outline" size={size} color={color} />
+              <Icon name="cart-outline" size={24} color={color} />
             </View>
           ),
         }}
